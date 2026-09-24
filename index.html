@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فيسبر | البنية التحتية للأجهزة الذكية</title>
+  <meta name="description" content="فيسبر | البنية التحتية للأجهزة الذكية - اكتشف أحدث التقنيات والحلول الإلكترونية المبتكرة المصممة للارتقاء بحياتك اليومية وإدارة أعمالك بذكاء." />
+  <meta property="og:title" content="فيسبر | البنية التحتية للأجهزة الذكية" />
+  <meta property="og:description" content="فيسبر للأجهزة الذكية - متجر إلكترونيات وأجهزة ذكية رائد يقدم حلول تقنية متكاملة بضمان معتمد." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Cairo & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Strict No-White Flash Rule */
+    html, body {
+      background: #000000 !important;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: "Cairo", system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #9a9a9a;
+      --stat: #d8d8d8;
+      --border: rgba(255, 255, 255, 0.16);
+      --border-soft: rgba(255, 255, 255, 0.12);
+      --logo: 16px;
+      --nav: 14px;
+      --nav-h: 40px;
+      --btn: 13.5px;
+      --btn-h: 40px;
+      --hero-btn-h: 44px;
+      --h1: 46px;
+      --lede: 16px;
+      --badge: 12.5px;
+      --header-y: 22px;
+      --header-x: 40px;
+      --stats-x: 72px;
+      --stats-y: 36px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Ambient Cyber Grain & Radial Glow Layer (z-index: 1) */
+    .ambient-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-glow-top {
+      position: absolute;
+      top: -20%;
+      right: 50%;
+      transform: translateX(50%);
+      width: 900px;
+      height: 520px;
+      background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(255, 255, 255, 0.07), rgba(120, 160, 210, 0.035) 45%, transparent 70%);
+      filter: blur(40px);
+    }
+
+    .ambient-glow-center {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(circle at center, rgba(220, 230, 255, 0.05) 0%, rgba(90, 120, 160, 0.02) 40%, transparent 65%);
+      filter: blur(50px);
+    }
+
+    .ambient-grain {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 0);
+      background-size: 28px 28px;
+      opacity: 0.15;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 20%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 20%, transparent 80%);
+    }
+
+    /* Main Page Container (z-index: 2) */
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 1. HEADER (3-Column Grid: 1fr auto 1fr) */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: var(--header-y) var(--header-x);
+      width: 100%;
+      position: relative;
+      z-index: 30;
+    }
+
+    /* Right column: Logo */
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-start;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-mark {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .logo-mark svg {
+      width: 22px;
+      height: 22px;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .header-logo:hover .logo-mark svg {
+      transform: rotate(45deg) scale(1.05);
+    }
+
+    .logo-text {
+      font-size: var(--logo);
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+
+    .logo-sub {
+      font-weight: 300;
+      opacity: 0.7;
+      font-size: 13px;
+    }
+
+    /* Center column: Nav Pills */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(18, 18, 18, 0.65);
+      border: 1px solid rgba(198, 198, 198, 0.22);
+      border-radius: 9999px;
+      padding: 4px 6px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-pill {
+      font-size: var(--nav);
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0 16px;
+      height: var(--nav-h);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      position: relative;
+      font-weight: 500;
+      transition: color 0.25s var(--ease-out), background 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+      border: 1px solid transparent;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .nav-pill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+      opacity: 0;
+      transition: opacity 0.25s var(--ease-out);
+      border-radius: inherit;
+    }
+
+    .nav-pill:hover {
+      color: var(--text);
+      border-color: rgba(198, 198, 198, 0.55);
+    }
+
+    .nav-pill:hover::before {
+      opacity: 1;
+    }
+
+    /* Left column: CTA Button & Burger */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn-header-cta {
+      font-size: var(--btn);
+      height: var(--btn-h);
+      padding: 0 20px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, #2a2a2a 0%, #151515 100%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+    }
+
+    .btn-header-cta:hover {
+      background: linear-gradient(180deg, #3a3a3a 0%, #1c1c1c 100%);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 6px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Burger button for Mobile */
+    .burger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-soft);
+      border-radius: 50%;
+      cursor: pointer;
+      color: #fff;
+      padding: 0;
+      transition: all 0.2s var(--ease-out);
+    }
+
+    .burger-btn span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: #ffffff;
+      transition: all 0.3s var(--ease-out);
+      transform-origin: center;
+    }
+
+    .burger-btn.is-active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .burger-btn.is-active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .burger-btn.is-active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* 2. HERO SECTION (Bottom-Centered Layout) */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 24px 30px;
+      max-width: 860px;
+      margin: auto auto;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Badge Tag */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      font-size: var(--badge);
+      font-weight: 600;
+      color: #e4e4e4;
+      background: linear-gradient(180deg, rgba(40, 40, 40, 0.75) 0%, rgba(18, 18, 18, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 9999px;
+      margin-bottom: 24px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 4px 14px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.1px;
+    }
+
+    .badge-sparkle {
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e0e0e0;
+    }
+
+    .badge-sparkle svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* H1 Headline */
+    .hero-h1 {
+      margin: 0;
+      font-size: var(--h1);
+      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: -0.8px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .h1-line {
+      display: block;
+    }
+
+    .hero-h1 em {
+      font-family: "Amiri", serif;
+      font-style: italic;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 15%, #dfdfdf 45%, #9c9c9c 75%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 0 4px;
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Lede Paragraph */
+    .hero-lede {
+      font-size: var(--lede);
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 18px 0 32px;
+      font-weight: 400;
+      letter-spacing: -0.1px;
+    }
+
+    /* Action Buttons */
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .btn-solid {
+      height: var(--hero-btn-h);
+      padding: 0 28px;
+      font-size: var(--btn);
+      font-weight: 700;
+      color: #000000;
+      background: linear-gradient(180deg, #ffffff 0%, #d8d8d8 100%);
+      border: 1px solid #ffffff;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: all 0.3s var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .btn-solid:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%);
+      box-shadow: 0 6px 26px rgba(255, 255, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .btn-ghost {
+      height: var(--hero-btn-h);
+      padding: 0 26px;
+      font-size: var(--btn);
+      font-weight: 600;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.3s var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.32);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    /* 3. STATS FOOTER (3 Inline Metrics at the Bottom) */
+    .stats-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: var(--stats-y) var(--stats-x);
+      width: 100%;
+      position: relative;
+      z-index: 20;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 13.5px;
+      color: var(--stat);
+      font-weight: 500;
+      letter-spacing: -0.1px;
+    }
+
+    .stat-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cfcfcf;
+      flex-shrink: 0;
+    }
+
+    .stat-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* 4. MOBILE NAVIGATION OVERLAY (.menu-backdrop, z-index: 40) */
+    .menu-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-out);
+      padding: 40px 24px;
+    }
+
+    .menu-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .mobile-nav-link {
+      font-size: 18px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 20px;
+      width: 100%;
+      text-align: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-soft);
+      transition: all 0.2s var(--ease-out);
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:active {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+
+    .mobile-menu-cta {
+      width: 100%;
+      max-width: 320px;
+      margin-top: 10px;
+    }
+
+    /* KEYFRAME ENTRANCE ANIMATIONS (Staggered Delays & Hardware Acceleration) */
+    @keyframes appearScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes appearSoft {
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes appearPop {
+      0% {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes appearMask {
+      0% {
+        opacity: 0;
+        transform: translateY(22px);
+        clip-path: inset(0 0 100% 0);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    @keyframes appearBtn {
+      0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes appearSide {
+      0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes appearStat {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Apply initial state & animations */
+    .anim-item {
+      opacity: 0;
+      animation-fill-mode: forwards;
+      animation-timing-function: var(--ease-out);
+      will-change: transform, opacity;
+    }
+
+    /* Delay mapping per spec */
+    .anim-logo {
+      animation-name: appearScale;
+      animation-duration: 0.7s;
+      animation-delay: 0.08s;
+    }
+
+    .anim-nav-1 {
+      animation-name: appearScale;
+      animation-duration: 0.6s;
+      animation-delay: 0.16s;
+    }
+
+    .anim-nav-2 {
+      animation-name: appearSoft;
+      animation-duration: 0.6s;
+      animation-delay: 0.28s;
+    }
+
+    .anim-nav-3 {
+      animation-name: appearSoft;
+      animation-duration: 0.6s;
+      animation-delay: 0.40s;
+    }
+
+    .anim-nav-4 {
+      animation-name: appearScale;
+      animation-duration: 0.6s;
+      animation-delay: 0.52s;
+    }
+
+    .anim-header-cta {
+      animation-name: appearSoft;
+      animation-duration: 0.6s;
+      animation-delay: 0.24s;
+    }
+
+    .anim-badge {
+      animation-name: appearPop;
+      animation-duration: 0.7s;
+      animation-delay: 0.22s;
+    }
+
+    .anim-h1-1 {
+      animation-name: appearMask;
+      animation-duration: 0.85s;
+      animation-delay: 0.42s;
+    }
+
+    .anim-h1-2 {
+      animation-name: appearMask;
+      animation-duration: 0.85s;
+      animation-delay: 0.62s;
+    }
+
+    .anim-lede {
+      animation-name: appearSoft;
+      animation-duration: 0.8s;
+      animation-delay: 0.82s;
+    }
+
+    .anim-hero-cta1 {
+      animation-name: appearBtn;
+      animation-duration: 0.75s;
+      animation-delay: 0.96s;
+    }
+
+    .anim-hero-cta2 {
+      animation-name: appearSide;
+      animation-duration: 0.75s;
+      animation-delay: 1.10s;
+    }
+
+    .anim-stat-1 {
+      animation-name: appearStat;
+      animation-duration: 0.7s;
+      animation-delay: 1.12s;
+    }
+
+    .anim-stat-2 {
+      animation-name: appearStat;
+      animation-duration: 0.7s;
+      animation-delay: 1.28s;
+    }
+
+    .anim-stat-3 {
+      animation-name: appearStat;
+      animation-duration: 0.7s;
+      animation-delay: 1.44s;
+    }
+
+    /* Fallback class applied by JS if needed */
+    .is-in {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+    }
+
+    /* DESKTOP / MOBILE RESPONSIVE RULES */
+    /* Desktop (>=901px): Enforce single-viewport height, zero scrollbars */
+    @media (min-width: 901px) {
+      body {
+        overflow: hidden;
+        height: 100vh;
+        height: 100dvh;
+      }
+      .page {
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+      }
+    }
+
+    /* Mobile (<=900px): Natural scrolling & stacked layout */
+    @media (max-width: 900px) {
+      :root {
+        --h1: 34px;
+        --lede: 15px;
+        --header-x: 20px;
+        --header-y: 16px;
+        --stats-x: 20px;
+        --stats-y: 28px;
+      }
+
+      body {
+        overflow-y: auto;
+        min-height: 100vh;
+      }
+
+      .page {
+        overflow-y: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        justify-content: flex-start;
+      }
+
+      .header {
+        grid-template-columns: 1fr auto;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .btn-header-cta {
+        display: none;
+      }
+
+      .burger-btn {
+        display: flex;
+      }
+
+      .hero {
+        padding: 40px 20px;
+        margin: 0 auto;
+      }
+
+      .hero-h1 {
+        line-height: 1.35;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-solid, .btn-ghost {
+        width: 100%;
+      }
+
+      .stats-footer {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        padding-bottom: 40px;
+        margin-top: auto;
+      }
+
+      .stat-item {
+        width: 100%;
+        max-width: 320px;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body style="background:#000;color:#fff">
+  <!-- Layer 2: Ambient Cyber Grain / Subtle Radial Glow (z-index: 1) -->
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-glow-top"></div>
+    <div class="ambient-glow-center"></div>
+    <div class="ambient-grain"></div>
+  </div>
+
+  <!-- Layer 3: Main Page Container (.page, z-index: 2) -->
+  <main class="page">
+    <!-- 1. HEADER (3-Column Grid: 1fr auto 1fr) -->
+    <header class="header">
+      <!-- Right: Logo -->
+      <a href="#" class="header-logo anim-item anim-logo" aria-label="فيسبر للأجهزة الذكية - الرئيسية">
+        <span class="logo-mark">
+          <!-- Liquid mark SVG (22x22px) -->
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liquidGrad" x1="2" y1="2" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="50%" stop-color="#b8b8b8"/>
+                <stop offset="100%" stop-color="#606060"/>
+              </linearGradient>
+            </defs>
+            <path d="M11 2C6.03 2 2 6.03 2 11C2 15.97 6.03 20 11 20C15.97 20 20 15.97 20 11C20 6.5 15.9 3.8 11 2ZM11 16.8C7.8 16.8 5.2 14.2 5.2 11C5.2 8.24 7.07 5.92 9.66 5.3V8.84C8.67 9.11 7.96 10 7.96 11.08C7.96 12.76 9.32 14.12 11 14.12C12.68 14.12 14.04 12.76 14.04 11.08C14.04 9.96 13.15 9.02 12.08 8.84V5.21C15.29 5.75 17.7 8.52 17.7 11.9C17.7 14.61 14.7 16.8 11 16.8Z" fill="url(#liquidGrad)"/>
+            <circle cx="11" cy="11" r="2" fill="#ffffff"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          فيسبر<span class="logo-sub">.إلكترونيات</span>
+        </span>
+      </a>
+
+      <!-- Center: Nav Pills -->
+      <nav class="header-nav" aria-label="التنقل الرئيسي">
+        <a href="#products" class="nav-pill anim-item anim-nav-1">المنتجات الحصرية</a>
+        <a href="#tech" class="nav-pill anim-item anim-nav-2">التقنيات المدمجة</a>
+        <a href="#faqs" class="nav-pill anim-item anim-nav-3">الأسئلة الشائعة</a>
+        <a href="#guarantee" class="nav-pill anim-item anim-nav-4">الضمان الذهبي</a>
+      </nav>
+
+      <!-- Left: Header CTA & Burger -->
+      <div class="header-actions">
+        <a href="#shop" class="btn-header-cta anim-item anim-header-cta">
+          تسوق الآن
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button type="button" class="burger-btn" id="burgerToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobileNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION (Bottom-Centered Layout) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Badge Tag -->
+      <div class="badge anim-item anim-badge">
+        <span class="badge-sparkle" aria-hidden="true">
+          <!-- Sparkle SVG -->
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z"/>
+          </svg>
+        </span>
+        <span>الجيل الجديد من الأجهزة الذكية</span>
+      </div>
+
+      <!-- H1 Headline (Two stacked lines with Arabic italic Amiri accents) -->
+      <h1 class="hero-h1" id="hero-title">
+        <span class="h1-line anim-item anim-h1-1">
+          بنية تحتية <em>لأجهزتك الذكية</em>
+        </span>
+        <span class="h1-line anim-item anim-h1-2">
+          تعمل بكل دقة وسرعة.
+        </span>
+      </h1>
+
+      <!-- Lede Paragraph -->
+      <p class="hero-lede anim-item anim-lede">
+        اكتشف أحدث التقنيات والحلول الإلكترونية المبتكرة المصممة للارتقاء بحياتك اليومية وإدارة أعمالك بذكاء.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-ctas">
+        <a href="#explore" class="btn-solid anim-item anim-hero-cta1">
+          <span>استكشف العروض</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#consult" class="btn-ghost anim-item anim-hero-cta2">
+          <span>تحدث مع خبير</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. STATS FOOTER (3 Inline Metrics at the Bottom) -->
+    <footer class="stats-footer" aria-label="إحصائيات وثقة العملاء">
+      <!-- Stat 1: SVG Dual-Pill Icon -->
+      <div class="stat-item anim-item anim-stat-1">
+        <div class="stat-icon" aria-hidden="true">
+          <!-- Dual-Pill SVG -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="5" width="18" height="6" rx="3"/>
+            <rect x="3" y="13" width="18" height="6" rx="3"/>
+          </svg>
+        </div>
+        <span>+50 ألف قطعة إلكترونية تم تسليمها</span>
+      </div>
+
+      <!-- Stat 2: SVG Tile Icon -->
+      <div class="stat-item anim-item anim-stat-2">
+        <div class="stat-icon" aria-hidden="true">
+          <!-- Tile Icon SVG -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="8" height="8" rx="2"/>
+            <rect x="13" y="3" width="8" height="8" rx="2"/>
+            <rect x="3" y="13" width="8" height="8" rx="2"/>
+            <rect x="13" y="13" width="8" height="8" rx="2"/>
+          </svg>
+        </div>
+        <span>99.4% نسبة رضا العملاء والضمان</span>
+      </div>
+
+      <!-- Stat 3: SVG Triple Avatar Icon -->
+      <div class="stat-item anim-item anim-stat-3">
+        <div class="stat-icon" aria-hidden="true">
+          <!-- Triple Avatar Icon SVG -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <span>+120 متجر شريك يعتمد علينا</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Layer 4: Mobile Navigation Overlay (.menu-backdrop, z-index: 40) -->
+  <aside class="menu-backdrop" id="mobileNav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="قائمة الموبايل">
+    <div class="mobile-menu-links">
+      <a href="#products" class="mobile-nav-link">المنتجات الحصرية</a>
+      <a href="#tech" class="mobile-nav-link">التقنيات المدمجة</a>
+      <a href="#faqs" class="mobile-nav-link">الأسئلة الشائعة</a>
+      <a href="#guarantee" class="mobile-nav-link">الضمان الذهبي</a>
+      <a href="#shop" class="btn-solid mobile-menu-cta">تسوق الآن</a>
+    </div>
+  </aside>
+
+  <!-- Lightweight Vanilla JavaScript IIFE Script -->
+  <script>
+    (function () {
+      "use strict";
+
+      // 1. Mobile Menu Overlay Logic
+      var burger = document.getElementById("burgerToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      var navLinks = document.querySelectorAll(".mobile-nav-link, .mobile-menu-cta");
+
+      function toggleMenu(forceOpen) {
+        if (!burger || !mobileNav) return;
+        var isOpen = typeof forceOpen === "boolean" ? forceOpen : !burger.classList.contains("is-active");
+
+        if (isOpen) {
+          burger.classList.add("is-active");
+          burger.setAttribute("aria-expanded", "true");
+          mobileNav.classList.add("is-open");
+          mobileNav.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        } else {
+          burger.classList.remove("is-active");
+          burger.setAttribute("aria-expanded", "false");
+          mobileNav.classList.remove("is-open");
+          mobileNav.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+      }
+
+      if (burger) {
+        burger.addEventListener("click", function (e) {
+          e.preventDefault();
+          toggleMenu();
+        });
+      }
+
+      // Close menu on link click
+      for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", function () {
+          toggleMenu(false);
+        });
+      }
+
+      // Close menu on Escape key press
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && mobileNav && mobileNav.classList.contains("is-open")) {
+          toggleMenu(false);
+        }
+      });
+
+      // 2. Fallback Animation Safety Mechanism
+      // Forces .is-in class after 2 rAF frames if CSS animations fail or get interrupted
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          var animItems = document.querySelectorAll(".anim-item");
+          var hasAnimation = false;
+
+          if (animItems.length > 0) {
+            var computed = window.getComputedStyle(animItems[0]);
+            var animName = computed.getPropertyValue("animation-name");
+            if (animName && animName !== "none") {
+              hasAnimation = true;
+            }
+          }
+
+          // In case CSS animation support is disabled or degraded, force visible
+          if (!hasAnimation) {
+            for (var j = 0; j < animItems.length; j++) {
+              animItems[j].classList.add("is-in");
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

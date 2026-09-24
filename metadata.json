@@ -1,0 +1,6 @@
+{
+  "name": "فيسبر للأجهزة الذكية",
+  "description": "فيسبر | البنية التحتية للأجهزة الذكية - متجر إلكترونيات وأجهزة ذكية رائد.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
